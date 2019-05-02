@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "host": "ngh --no-silent --dir=dist/videoCatalogue",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
