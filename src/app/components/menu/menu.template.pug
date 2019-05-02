@@ -1,0 +1,10 @@
+doctype html
+
+header
+    nav.menu
+        .menu-item(
+            *ngFor="let 'menuItem' of (menuItems$ | async)",
+            [class.active]='menuItem.isActive',
+            [attr.link]='menuItem.link',
+            (click)='menuItem.isActive? onMenuItemClick(menuItem) : null'
+        ) {{ menuItem.name }}
