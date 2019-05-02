@@ -10,8 +10,8 @@ import { IVideoService } from 'src/app/services/contracts/IVideoService';
 })
 class VideoItemComponent {
     constructor(
-        public videoItem: Video,
-        private videoServie: IVideoService
+        // public videoItem: Video,
+        // private videoServie: IVideoService
     ) {
     }
 }

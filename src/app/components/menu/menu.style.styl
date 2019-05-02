@@ -1,0 +1,23 @@
+@import '../../../common/colors.styl';
+
+.menu
+    display flex
+    flex-direction row
+    flex-wrap nowrap
+    align-items center
+    justify-content flex-end
+    
+    height 3em
+    padding 0 5px
+
+    background-color color-asphalt
+    &-item
+        padding 5px 10px
+        color rgb(107, 156, 166)
+        font-size 18px
+        font-family Righteous, monospace
+        cursor pointer
+        &:hover, &:active
+            background-color color-wet-asphalt
+            color #fff
+            box-shadow 0 0 0.2em color-wood-night-dark
