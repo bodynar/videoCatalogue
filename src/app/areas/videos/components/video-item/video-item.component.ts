@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Video } from 'src/app/models/video';
 import { IVideoService } from 'src/app/services/contracts/IVideoService';
@@ -13,11 +14,20 @@ class VideoItemComponent implements OnInit {
     public videoItem: Video;
 
     constructor(
-        // private videoServie: IVideoService
+        private router: Router,
+        private videoServie: IVideoService
     ) {
     }
 
     public ngOnInit(): void {
+    }
+
+    public onVideoClick(): void {
+        this.router.navigate(['videos', 'view'], {
+            queryParams: {
+                'videoId': this.videoItem.id
+            }
+        });
     }
 }
 

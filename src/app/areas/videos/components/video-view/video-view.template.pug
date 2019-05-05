@@ -1,3 +1,11 @@
 doctype html
 
-h4 video view
+button.btn.btn-outline-danger((click)='onBtnClick()') back
+hr
+
+h4 {{ (videoName$ | async) }}
+
+img(
+    alt='video preview',
+    [src]='(videoPreview$ | async)'
+)

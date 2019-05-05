@@ -1,5 +1,8 @@
 doctype html
 
-.item
+.item(
+    (click)='onVideoClick()'
+)
     .item-container
+        img.item-preview([src]='videoItem.preview')
         .item-content {{ videoItem.name }}

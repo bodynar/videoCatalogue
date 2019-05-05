@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { AppServicesModule } from './services/services.module';
 
 import { EmployeesModule } from './areas/employees/employees.module';
 import { VideosModule } from './areas/videos/videos.module';
@@ -16,6 +17,7 @@ import { VideosModule } from './areas/videos/videos.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AppServicesModule,
     VideosModule,
     EmployeesModule
   ],
