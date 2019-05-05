@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { ReplaySubject, Subject } from 'rxjs';
 
@@ -10,13 +11,14 @@ import { siteMenu } from 'src/static/menu';
     templateUrl: 'menu.template.pug',
     styleUrls: ['menu.style.styl']
 })
-
 class MenuComponent implements OnInit {
 
     public menuItems$: Subject<Array<IMenuItem>> =
         new ReplaySubject(1);
 
-    constructor() {
+    constructor(
+        private router: Router
+    ) {
         this.menuItems$.next(siteMenu);
     }
 
@@ -25,7 +27,8 @@ class MenuComponent implements OnInit {
     }
 
     public onMenuItemClick(menuItem: IMenuItem): void {
-        alert(`you clicked on ${menuItem.name}`);
+        this.router.navigate([menuItem.link])
+            .then().catch();
     }
 }
 
