@@ -11,7 +11,7 @@ const routes: Routes = [
         component: VideosComponent,
         children: [
             {
-                path: 'list',
+                path: '',
                 pathMatch: 'full',
                 component: VideoListComponent
             },

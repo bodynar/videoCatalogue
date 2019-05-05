@@ -6,6 +6,7 @@ import { VideosComponent } from './component/videos.component';
 import { VideoItemComponent } from './components/video-item/video-item.component';
 import { VideoListComponent } from './components/video-list/video-list.component';
 import { VideoViewComponent } from './components/video-view/video-view.component';
+import { VideoFiltersComponent } from './components/video-filters/video-filters.component';
 
 @NgModule({
     imports: [
@@ -15,7 +16,7 @@ import { VideoViewComponent } from './components/video-view/video-view.component
     exports: [],
     declarations: [
         VideosComponent, VideoItemComponent, VideoListComponent,
-        VideoViewComponent
+        VideoViewComponent, VideoFiltersComponent
     ],
     providers: [],
 })
