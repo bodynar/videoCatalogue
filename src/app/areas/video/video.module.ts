@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
 
-import { VideoComponent } from './video.component';
-import { VideoItemComponent } from './video-item/video-item.component';
+import { VideoItemComponent } from './components/video-item/video-item.component';
+import { VideosComponent } from './component/videos.component';
 
 @NgModule({
     imports: [],
     exports: [],
-    declarations: [
-        VideoComponent, VideoItemComponent
-    ],
+    declarations: [VideosComponent, VideoItemComponent],
     providers: [],
 })
-class VideoModule { }
+class VideosModule { }
 
-export { VideoModule };
+export { VideosModule };

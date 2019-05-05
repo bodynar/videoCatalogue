@@ -1,10 +1,30 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [];
+import { VideosComponent } from './areas/video/component/videos.component';
+import { EmployeesComponent } from './areas/employees/component/employees.component';
+import { VideosModule } from './areas/video/video.module';
+import { EmployeesModule } from './areas/employees/employees.module';
+
+const routes: Routes = [
+  {
+    path: 'videos',
+    pathMatch: 'full',
+    component: VideosComponent
+  },
+  {
+    path: 'employees',
+    pathMatch: 'full',
+    component: EmployeesComponent
+  }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+    VideosModule,
+    EmployeesModule
+  ],
   exports: [RouterModule]
 })
 class AppRoutingModule { }
