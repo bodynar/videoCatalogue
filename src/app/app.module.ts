@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './components/menu/menu.component';
 
+import { EmployeesModule } from './areas/employees/employees.module';
+import { VideosModule } from './areas/videos/videos.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -12,7 +15,9 @@ import { MenuComponent } from './components/menu/menu.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    VideosModule,
+    EmployeesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,11 @@
 doctype html
 
 h1 video page
+
+ul
+    li(
+        *ngFor="let 'link' of (links$ | async)",
+        (click)='click(link)'
+    ) {{ link }}
+
+router-outlet
