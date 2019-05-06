@@ -11,6 +11,7 @@ import { AppServicesModule } from './services/services.module';
 import { EmployeesModule } from './areas/employees/employees.module';
 import { VideosModule } from './areas/videos/videos.module';
 import { UserModule } from './areas/user/user.module';
+import { LoginModule } from './pages/login/login.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { UserModule } from './areas/user/user.module';
     VideosModule,
     EmployeesModule,
     UserModule,
+    LoginModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
