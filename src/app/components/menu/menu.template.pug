@@ -6,5 +6,5 @@ header
             *ngFor="let 'menuItem' of (menuItems$ | async)",
             [class.active]='menuItem.isActive',
             [attr.link]='menuItem.link',
-            (click)='menuItem.isActive? onMenuItemClick(menuItem) : null'
+            (click)='onMenuItemClick(menuItem)'
         ) {{ menuItem.name }}

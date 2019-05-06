@@ -12,21 +12,26 @@ import { siteMenu } from 'src/static/menu';
     styleUrls: ['menu.style.styl']
 })
 class MenuComponent implements OnInit {
-
     public menuItems$: Subject<Array<IMenuItem>> =
         new ReplaySubject(1);
 
+    private menuItems: Array<IMenuItem>;
+
     constructor(
-        private router: Router
+        private router: Router,
     ) {
-        this.menuItems$.next(siteMenu);
+        this.menuItems = siteMenu;
+        this.menuItems$.next(this.menuItems);
     }
 
     public ngOnInit(): void {
-        console.log('menu initialized');
+        // todo add highliting current menu area
     }
 
     public onMenuItemClick(menuItem: IMenuItem): void {
+        this.menuItems.forEach(item => item.isActive = false);
+        menuItem.isActive = true;
+
         this.router.navigate([menuItem.link])
             .then().catch();
     }

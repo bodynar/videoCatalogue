@@ -1,7 +1,7 @@
 interface IMenuItem {
     name: string;
     childs?: Array<IMenuItem>;
-    isActive: boolean;
+    isActive?: boolean;
     link?: string;
 }
 
