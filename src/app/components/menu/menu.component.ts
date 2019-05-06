@@ -5,6 +5,7 @@ import { ReplaySubject, Subject } from 'rxjs';
 
 import { IMenuItem } from 'src/app/models/menuItem';
 import { siteMenu } from 'src/static/menu';
+import { ICurrentUser } from 'src/app/services/contracts/ICurrentUser';
 
 @Component({
     selector: 'app-menu',

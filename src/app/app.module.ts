@@ -3,11 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { MenuComponent } from './components/menu/menu.component';
+
 import { AppServicesModule } from './services/services.module';
 
 import { EmployeesModule } from './areas/employees/employees.module';
 import { VideosModule } from './areas/videos/videos.module';
+import { UserModule } from './areas/user/user.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,8 @@ import { VideosModule } from './areas/videos/videos.module';
     AppRoutingModule,
     AppServicesModule,
     VideosModule,
-    EmployeesModule
+    EmployeesModule,
+    UserModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
