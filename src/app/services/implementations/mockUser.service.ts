@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { isNullOrUndefined } from 'util';
 
 import { IUserService } from '../contracts/IUserService';
+import { ICurrentUser } from '../contracts/ICurrentUser';
 
 import { mockUsers } from 'src/static/users';
 import { ActionResult } from 'src/app/models/common/actionResult';
@@ -12,10 +13,11 @@ import { User } from 'src/app/models/user';
 class MockUserService implements IUserService {
 
     constructor(
+        private currentUser: ICurrentUser
     ) {
     }
 
-    public authorize(login: string, passwordHash: string): string {
+    public authorize(login: string, passwordHash: string): void {
         const specificUser: User =
             mockUsers.find(user => user.login === login);
 
@@ -27,7 +29,9 @@ class MockUserService implements IUserService {
             throw new Error('Password is not correct');
         }
 
-        return 'token';
+        specificUser.token = 'token';
+
+        this.currentUser.authorize(specificUser);
     }
 
     public register(login: string, passwordHash: string): ActionResult<boolean> {
