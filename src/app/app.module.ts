@@ -11,7 +11,7 @@ import { AppServicesModule } from './services/services.module';
 import { EmployeesModule } from './areas/employees/employees.module';
 import { VideosModule } from './areas/videos/videos.module';
 import { UserModule } from './areas/user/user.module';
-import { LoginModule } from './pages/login/login.module';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [
@@ -25,10 +25,10 @@ import { LoginModule } from './pages/login/login.module';
     VideosModule,
     EmployeesModule,
     UserModule,
-    LoginModule,
+    PagesModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppContainerComponent]
 })
 class AppModule { }
 
