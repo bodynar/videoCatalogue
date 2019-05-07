@@ -3,15 +3,15 @@ import { IMenuItem } from 'src/app/models/menuItem';
 const siteMenu: Array<IMenuItem> = [
     {
         name: 'Videos',
-        link: '/videos/'
+        link: 'videos'
     },
     {
         name: 'Employees',
-        link: '/employees/'
+        link: 'employees'
     },
     {
         name: 'User',
-        link: '/user/'
+        link: 'user'
     }
 ];
 

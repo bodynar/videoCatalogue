@@ -1,19 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { EmployeesComponent } from './areas/employees/component/employees.component';
-import { LoginComponent } from './pages/login/login.component';
+import { AppContainerComponent } from './components/appContainer/appContainer.component';
+import { areasRouting } from './areas/areas.routing';
 
 const routes: Routes = [
   {
-    path: 'employees',
-    pathMatch: 'full',
-    component: EmployeesComponent
-  },
-  {
-    path: 'login',
-    component: LoginComponent // todo: add redirect if not logged in
-  },
+    path: '',
+    component: AppContainerComponent,
+    children: [...areasRouting]
+  }
 ];
 
 @NgModule({

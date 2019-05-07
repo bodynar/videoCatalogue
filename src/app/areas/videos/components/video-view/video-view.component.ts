@@ -23,6 +23,7 @@ class VideoViewComponent implements OnDestroy {
 
     constructor(
         private router: Router,
+        private route: ActivatedRoute,
         private activatedRoute: ActivatedRoute,
         private videoService: IVideoService
     ) {
@@ -53,7 +54,7 @@ class VideoViewComponent implements OnDestroy {
 
     public onBtnClick(): void {
         this.router
-            .navigate(['videos'])
+            .navigate(['videos'], { relativeTo: this.route })
             .then().catch();
     }
 }

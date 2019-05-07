@@ -23,12 +23,15 @@ const routes: Routes = [
         ]
     }
 ];
-
 @NgModule({
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule],
     declarations: [],
+    providers: [],
 })
 class VideosRoutingModule { }
 
-export { VideosRoutingModule };
+export {
+    VideosRoutingModule,
+    routes,
+};
