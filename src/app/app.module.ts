@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppContainerComponent } from './component/appContainer.component';
 
 import { MenuComponent } from './components/menu/menu.component';
 
@@ -15,7 +15,7 @@ import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppContainerComponent,
     MenuComponent
   ],
   imports: [
