@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { IUserService } from 'src/app/services/contracts/IUserService';
 import { ICurrentUser } from 'src/app/services/contracts/ICurrentUser';
@@ -7,14 +7,11 @@ import { ICurrentUser } from 'src/app/services/contracts/ICurrentUser';
     templateUrl: 'user.template.pug',
     styleUrls: ['user.style.styl']
 })
-class UserComponent implements OnInit {
+class UserComponent {
     constructor(
         private currentUser: ICurrentUser,
         private userService: IUserService,
     ) {
-    }
-
-    public ngOnInit(): void {
     }
 }
 

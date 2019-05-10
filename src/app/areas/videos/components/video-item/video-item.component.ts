@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { Video } from 'src/app/models/video';
 import { IVideoService } from 'src/app/services/contracts/IVideoService';
@@ -9,7 +9,7 @@ import { IRouterService } from 'src/app/services/contracts/IRouterService';
     templateUrl: 'video-item.template.pug',
     styleUrls: ['video-item.style.styl']
 })
-class VideoItemComponent implements OnInit {
+class VideoItemComponent {
     @Input('video')
     public videoItem: Video;
 
@@ -17,9 +17,6 @@ class VideoItemComponent implements OnInit {
         private routerService: IRouterService,
         private videoServie: IVideoService,
     ) {
-    }
-
-    public ngOnInit(): void {
     }
 
     public onVideoClick(): void {

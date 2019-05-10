@@ -1,16 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
     templateUrl: 'employees.template.pug',
     styleUrls: ['employees.style.styl']
 })
-
-class EmployeesComponent implements OnInit {
+class EmployeesComponent {
     constructor(
     ) {
     }
-
-    public ngOnInit(): void { }
 }
 
 export { EmployeesComponent };

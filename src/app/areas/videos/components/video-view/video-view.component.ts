@@ -1,9 +1,10 @@
 import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { map, filter } from 'rxjs/operators';
-import { isNullOrUndefined } from 'util';
+import { map, filter, takeUntil } from 'rxjs/operators';
 import { ReplaySubject, Subject } from 'rxjs';
+
+import { isNullOrUndefined } from 'util';
 
 import { IVideoService } from 'src/app/services/contracts/IVideoService';
 import { IRouterService } from 'src/app/services/contracts/IRouterService';
@@ -19,6 +20,10 @@ class VideoViewComponent implements OnDestroy {
     public videoPreview$: Subject<string> =
         new ReplaySubject(1);
 
+
+    private whenComponentDestroy$: Subject<null> =
+        new Subject();
+
     private whenRecieveVideoParams$: Subject<string> =
         new ReplaySubject(1);
 
@@ -30,6 +35,7 @@ class VideoViewComponent implements OnDestroy {
         this.activatedRoute
             .queryParams
             .pipe(
+                takeUntil(this.whenComponentDestroy$),
                 map(params => ({
                     id: params['videoId']
                 })),
@@ -40,6 +46,7 @@ class VideoViewComponent implements OnDestroy {
 
         this.whenRecieveVideoParams$
             .pipe(
+                takeUntil(this.whenComponentDestroy$),
                 map(id => this.videoService.getVideo(id))
             )
             .subscribe(({ name, preview }) => {
@@ -49,11 +56,16 @@ class VideoViewComponent implements OnDestroy {
     }
 
     public ngOnDestroy(): void {
-
+        this.whenComponentDestroy$.next(null);
+        this.whenComponentDestroy$.complete();
     }
 
     public onBtnClick(): void {
         this.routerService.navigateUp();
+    }
+
+    public onClick(): void {
+        this.routerService.navigate(['employees']);
     }
 }
 
