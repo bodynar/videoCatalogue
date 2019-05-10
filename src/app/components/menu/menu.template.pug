@@ -1,10 +1,10 @@
 doctype html
 
-header
-    nav.menu
-        .menu-item(
+nav.navbar.navbar-expand-lg.sticky-top
+    .navbar-brand Video catalogue
+    ul.navbar-nav
+        .nav-item.m-nav-item(
             *ngFor="let 'menuItem' of (menuItems$ | async)",
-            [class.active]='menuItem.isActive',
-            [attr.link]='menuItem.link',
-            (click)='onMenuItemClick(menuItem)'
-        ) {{ menuItem.name }}
+            [class.active]='menuItem.isActive'
+        )
+            a.nav-link.m-nav-link((click)='onMenuItemClick(menuItem)') {{ menuItem.name }}
