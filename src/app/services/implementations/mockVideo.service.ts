@@ -1,19 +1,24 @@
 import { Injectable } from '@angular/core';
 
+import { Observable, of } from 'rxjs';
+
 import { IVideoService } from '../contracts/IVideoService';
 
-import { Video } from 'src/app/models/video';
+import { Video, VideoData } from 'src/app/models/video';
 import { mockVideos } from 'src/static/videos';
 
 @Injectable()
 class MockVideoService implements IVideoService {
-    constructor() { }
 
-    public canEdit(_: number, __: number): boolean {
-        return false;
+    public getVideos(): Observable<Array<Video>> {
+        return of(mockVideos.map(video => ({
+            id: video.id,
+            name: video.name,
+            preview: video.preview
+        })));
     }
 
-    public getVideo(videoId: string): Video {
+    public getVideo(videoId: string): VideoData {
         return mockVideos.filter(video => video.id === videoId).pop();
     }
 }

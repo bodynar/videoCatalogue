@@ -1,25 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { ReplaySubject, Subject } from 'rxjs';
 
 import { Video } from 'src/app/models/video';
-import { mockVideos } from 'src/static/videos';
+import { IVideoService } from 'src/app/services/contracts/IVideoService';
 
 @Component({
     templateUrl: 'video-list.template.pug',
     styleUrls: ['video-list.style.styl']
 })
-class VideoListComponent implements OnInit {
+class VideoListComponent {
 
     public videos$: Subject<Array<Video>> =
         new ReplaySubject(1);
 
     constructor(
+        private videoService: IVideoService
     ) {
-        this.videos$.next(mockVideos);
+        this.videoService
+            .getVideos()
+            .subscribe(videos => this.videos$.next(videos));
     }
-
-    public ngOnInit(): void { }
 }
 
 export { VideoListComponent };
