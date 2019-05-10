@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 
 import { Observable, of } from 'rxjs';
 
-import { IVideoService } from '../contracts/IVideoService';
+import { IVideoService } from 'services/IVideoService';
 
-import { Video, VideoData } from 'src/app/models/video';
+import { Video, VideoData } from 'models/video';
 import { mockVideos } from 'src/static/videos';
 
 @Injectable()

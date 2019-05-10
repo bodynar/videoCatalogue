@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 
-import { ICurrentUser } from '../contracts/ICurrentUser';
 import { isNullOrUndefined } from 'util';
-import { User } from 'src/app/models/user';
+
+import { ICurrentUser } from 'services/ICurrentUser';
+
+import { User } from 'models/user';
 
 @Injectable()
 class CurrentUserService implements ICurrentUser {

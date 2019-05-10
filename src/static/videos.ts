@@ -1,4 +1,4 @@
-import { VideoData } from 'src/app/models/video';
+import { VideoData } from 'models/video';
 
 const mockVideos: Array<VideoData> = [
     {

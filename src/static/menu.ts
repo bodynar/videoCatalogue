@@ -1,4 +1,4 @@
-import { MenuItem } from 'src/app/models/menuItem';
+import { MenuItem } from 'models/menuItem';
 
 const siteMenu: Array<MenuItem> = [
     {

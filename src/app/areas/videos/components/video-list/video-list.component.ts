@@ -3,8 +3,8 @@ import { Component, OnDestroy } from '@angular/core';
 import { ReplaySubject, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { Video } from 'src/app/models/video';
-import { IVideoService } from 'src/app/services/contracts/IVideoService';
+import { Video } from 'models/video';
+import { IVideoService } from 'services/IVideoService';
 
 @Component({
     templateUrl: 'video-list.template.pug',

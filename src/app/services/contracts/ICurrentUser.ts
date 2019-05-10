@@ -1,4 +1,4 @@
-import { User } from 'src/app/models/user';
+import { User } from 'models/user';
 
 abstract class ICurrentUser {
     abstract user: User;

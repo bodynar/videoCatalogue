@@ -1,4 +1,4 @@
-import { ActionResult } from 'src/app/models/common/actionResult';
+import { ActionResult } from 'models/common/actionResult';
 
 abstract class IUserService {
     /**

@@ -5,9 +5,10 @@ import { takeUntil } from 'rxjs/operators';
 
 import { isNullOrUndefined } from 'util';
 
-import { MenuItem } from 'src/app/models/menuItem';
+import { IRouterService } from 'services/IRouterService';
+
+import { MenuItem } from 'models/menuItem';
 import { siteMenu } from 'src/static/menu';
-import { IRouterService } from 'src/app/services/contracts/IRouterService';
 
 @Component({
     selector: 'app-menu',

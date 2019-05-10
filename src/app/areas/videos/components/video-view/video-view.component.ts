@@ -6,8 +6,8 @@ import { ReplaySubject, Subject } from 'rxjs';
 
 import { isNullOrUndefined } from 'util';
 
-import { IVideoService } from 'src/app/services/contracts/IVideoService';
-import { IRouterService } from 'src/app/services/contracts/IRouterService';
+import { IVideoService } from 'services/IVideoService';
+import { IRouterService } from 'services/IRouterService';
 
 @Component({
     templateUrl: 'video-view.template.pug',
@@ -62,10 +62,6 @@ class VideoViewComponent implements OnDestroy {
 
     public onBtnClick(): void {
         this.routerService.navigateUp();
-    }
-
-    public onClick(): void {
-        this.routerService.navigate(['employees']);
     }
 }
 

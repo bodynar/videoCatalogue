@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 
-import { Video, VideoData } from 'src/app/models/video';
+import { Video, VideoData } from 'models/video';
 
 abstract class IVideoService {
     /**

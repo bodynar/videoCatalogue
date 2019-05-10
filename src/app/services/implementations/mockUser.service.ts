@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 
 import { isNullOrUndefined } from 'util';
 
-import { IUserService } from '../contracts/IUserService';
-import { ICurrentUser } from '../contracts/ICurrentUser';
+import { IUserService } from 'services/IUserService';
+import { ICurrentUser } from 'services/ICurrentUser';
 
 import { mockUsers } from 'src/static/users';
-import { ActionResult } from 'src/app/models/common/actionResult';
-import { User } from 'src/app/models/user';
+
+import { ActionResult } from 'models/common/actionResult';
+import { User } from 'models/user';
 
 @Injectable()
 class MockUserService implements IUserService {
