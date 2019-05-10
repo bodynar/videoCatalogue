@@ -3,6 +3,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ReplaySubject, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
+import { isNullOrUndefined } from 'util';
+
 import { MenuItem } from 'src/app/models/menuItem';
 import { siteMenu } from 'src/static/menu';
 import { IRouterService } from 'src/app/services/contracts/IRouterService';
@@ -61,8 +63,10 @@ class MenuComponent implements OnInit, OnDestroy {
                 .filter(item => item.link === menuItemName)
                 .pop();
 
-        this.menuItems.forEach(item => item.isActive = false);
-        menuItem.isActive = true;
+        if (!isNullOrUndefined(menuItem)) {
+            this.menuItems.forEach(item => item.isActive = false);
+            menuItem.isActive = true;
+        }
     }
 }
 
