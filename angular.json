@@ -23,7 +23,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/common/styles.styl"
+              "src/common/styles.styl",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
