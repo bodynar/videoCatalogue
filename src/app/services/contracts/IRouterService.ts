@@ -12,6 +12,11 @@ abstract class IRouterService {
     abstract getAreaName(): string;
 
     /**
+     * Get current route path
+     */
+    abstract getCurrentPath(): string;
+
+    /**
      * Navigate to strict path
      * @param path Target url
      */

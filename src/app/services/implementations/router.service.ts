@@ -36,6 +36,10 @@ class RouterService implements IRouterService {
             .pop();
     }
 
+    public getCurrentPath(): string {
+        return this.router.url.substring(1);
+    }
+
     public navigate(path: Array<string>): void {
         this.router
             .navigate(path)
