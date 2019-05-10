@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
 
 import { Video } from 'src/app/models/video';
 import { IVideoService } from 'src/app/services/contracts/IVideoService';
+import { IRouterService } from 'src/app/services/contracts/IRouterService';
 
 @Component({
     selector: 'app-video-item',
@@ -14,9 +14,8 @@ class VideoItemComponent implements OnInit {
     public videoItem: Video;
 
     constructor(
-        private router: Router,
+        private routerService: IRouterService,
         private videoServie: IVideoService,
-        private route: ActivatedRoute
     ) {
     }
 
@@ -24,11 +23,8 @@ class VideoItemComponent implements OnInit {
     }
 
     public onVideoClick(): void {
-        this.router.navigate(['view'], {
-            queryParams: {
-                'videoId': this.videoItem.id
-            },
-            relativeTo: this.route
+        this.routerService.navigateDeep(['view'], {
+            queryParams: { 'videoId': this.videoItem.id }
         });
     }
 }

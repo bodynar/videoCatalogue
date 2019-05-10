@@ -1,11 +1,12 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnDestroy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { map, filter } from 'rxjs/operators';
 import { isNullOrUndefined } from 'util';
 import { ReplaySubject, Subject } from 'rxjs';
 
 import { IVideoService } from 'src/app/services/contracts/IVideoService';
+import { IRouterService } from 'src/app/services/contracts/IRouterService';
 
 @Component({
     templateUrl: 'video-view.template.pug',
@@ -22,8 +23,7 @@ class VideoViewComponent implements OnDestroy {
         new ReplaySubject(1);
 
     constructor(
-        private router: Router,
-        private route: ActivatedRoute,
+        private routerService: IRouterService,
         private activatedRoute: ActivatedRoute,
         private videoService: IVideoService
     ) {
@@ -53,9 +53,7 @@ class VideoViewComponent implements OnDestroy {
     }
 
     public onBtnClick(): void {
-        this.router
-            .navigate(['videos'], { relativeTo: this.route })
-            .then().catch();
+        this.routerService.navigateUp();
     }
 }
 

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { ReplaySubject, Subject } from 'rxjs';
 
 import { IMenuItem } from 'src/app/models/menuItem';
 import { siteMenu } from 'src/static/menu';
+import { IRouterService } from 'src/app/services/contracts/IRouterService';
 
 @Component({
     selector: 'app-menu',
@@ -18,7 +18,7 @@ class MenuComponent implements OnInit {
     private menuItems: Array<IMenuItem>;
 
     constructor(
-        private router: Router,
+        private routerService: IRouterService,
     ) {
         this.menuItems = siteMenu;
         this.menuItems$.next(this.menuItems);
@@ -32,8 +32,7 @@ class MenuComponent implements OnInit {
         this.menuItems.forEach(item => item.isActive = false);
         menuItem.isActive = true;
 
-        this.router.navigate([menuItem.link])
-            .then().catch();
+        this.routerService.navigate([menuItem.link]);
     }
 }
 

@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 
 import { IVideoService } from './contracts/IVideoService';
-import { MockVideoService } from './implementations/mockVideo.service';
 import { IUserService } from './contracts/IUserService';
+import { ICurrentUser } from './contracts/ICurrentUser';
+import { IRouterService } from './contracts/IRouterService';
+
+import { MockVideoService } from './implementations/mockVideo.service';
 import { MockUserService } from './implementations/mockUser.service';
 import { CurrentUserService } from './implementations/currentUser.service';
-import { ICurrentUser } from './contracts/ICurrentUser';
+import { RouterService } from './implementations/router.service';
 
 @NgModule({
     imports: [],
@@ -13,7 +16,8 @@ import { ICurrentUser } from './contracts/ICurrentUser';
     providers: [
         { provide: IVideoService, useClass: MockVideoService },
         { provide: IUserService, useClass: MockUserService },
-        { provide: ICurrentUser, useClass: CurrentUserService }
+        { provide: ICurrentUser, useClass: CurrentUserService },
+        { provide: IRouterService, useClass: RouterService }
     ],
 })
 class AppServicesModule { }
