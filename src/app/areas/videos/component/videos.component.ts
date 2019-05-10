@@ -1,17 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 
 @Component({
-    templateUrl: 'videos.template.pug',
-    styleUrls: ['videos.styles.styl']
+    templateUrl: 'videos.template.pug'
 })
-class VideosComponent implements OnInit {
+class VideosComponent {
     constructor(
-        private router: Router
     ) {
     }
-
-    public ngOnInit(): void { }
 }
 
 export { VideosComponent };
