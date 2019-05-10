@@ -1,6 +1,6 @@
-import { IMenuItem } from 'src/app/models/menuItem';
+import { MenuItem } from 'src/app/models/menuItem';
 
-const siteMenu: Array<IMenuItem> = [
+const siteMenu: Array<MenuItem> = [
     {
         name: 'Videos',
         link: 'videos'

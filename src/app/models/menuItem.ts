@@ -1,8 +1,8 @@
-interface IMenuItem {
+interface MenuItem {
     name: string;
-    childs?: Array<IMenuItem>;
+    childs?: Array<MenuItem>;
     isActive?: boolean;
     link?: string;
 }
 
-export { IMenuItem };
+export { MenuItem };

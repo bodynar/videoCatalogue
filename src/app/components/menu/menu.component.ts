@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ReplaySubject, Subject } from 'rxjs';
 
-import { IMenuItem } from 'src/app/models/menuItem';
+import { MenuItem } from 'src/app/models/menuItem';
 import { siteMenu } from 'src/static/menu';
 import { IRouterService } from 'src/app/services/contracts/IRouterService';
 
@@ -12,10 +12,10 @@ import { IRouterService } from 'src/app/services/contracts/IRouterService';
     styleUrls: ['menu.style.styl']
 })
 class MenuComponent implements OnInit {
-    public menuItems$: Subject<Array<IMenuItem>> =
+    public menuItems$: Subject<Array<MenuItem>> =
         new ReplaySubject(1);
 
-    private menuItems: Array<IMenuItem>;
+    private menuItems: Array<MenuItem>;
 
     constructor(
         private routerService: IRouterService,
@@ -25,14 +25,31 @@ class MenuComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-        // todo add highliting current menu area
+        this.routerService
+            .whenRouteChange()
+            .subscribe(([rootPath]) => this.highlightMenuItem(rootPath));
+
+        const currentArea: string =
+            this.routerService.getAreaName();
+
+        this.highlightMenuItem(currentArea);
     }
 
-    public onMenuItemClick(menuItem: IMenuItem): void {
+    public onMenuItemClick(menuItem: MenuItem): void {
         this.menuItems.forEach(item => item.isActive = false);
         menuItem.isActive = true;
 
         this.routerService.navigate([menuItem.link]);
+    }
+
+    private highlightMenuItem(menuItemName: string): void {
+        const menuItem: MenuItem =
+            this.menuItems
+                .filter(item => item.link === menuItemName)
+                .pop();
+
+        this.menuItems.forEach(item => item.isActive = false);
+        menuItem.isActive = true;
     }
 }
 

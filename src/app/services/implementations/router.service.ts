@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
+
+import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
 import { IRouterService } from '../contracts/IRouterService';
 
@@ -9,6 +12,28 @@ class RouterService implements IRouterService {
     constructor(
         private router: Router,
     ) {
+    }
+
+    public whenRouteChange(): Observable<Array<string>> {
+        return this.router
+            .events
+            .pipe(
+                filter(event => event instanceof NavigationEnd),
+                map(event => event as NavigationEnd),
+                map(({ urlAfterRedirects }) =>
+                    urlAfterRedirects
+                        .split('/')
+                        .filter(routerPath => routerPath !== '')
+                )
+            );
+    }
+
+    public getAreaName(): string {
+        return this.router.url
+            .split('/')
+            .filter(routerPart => routerPart !== '')
+            .reverse()
+            .pop();
     }
 
     public navigate(path: Array<string>): void {

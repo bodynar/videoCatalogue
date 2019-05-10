@@ -1,4 +1,16 @@
+import { Observable } from 'rxjs';
+
 abstract class IRouterService {
+    /**
+     * Subscribtion to route changes
+     */
+    abstract whenRouteChange(): Observable<Array<string>>;
+
+    /**
+     * Get current area name
+     */
+    abstract getAreaName(): string;
+
     /**
      * Navigate to strict path
      * @param path Target url
@@ -15,6 +27,7 @@ abstract class IRouterService {
      * @param extras Additional information
      */
     abstract navigateDeep(routeDefinition: Array<string>, extras: any): void;
+
 }
 
 export { IRouterService };
