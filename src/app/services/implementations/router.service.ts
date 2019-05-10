@@ -4,7 +4,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 
-import { IRouterService } from '../contracts/IRouterService';
+import { IRouterService } from 'services/IRouterService';
 
 @Injectable()
 class RouterService implements IRouterService {

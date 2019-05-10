@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 
 import { isNullOrUndefined } from 'util';
 
-import { IUserService } from 'services/IUserService';
 import { ICurrentUser } from 'services/ICurrentUser';
+import { IUserService } from 'services/IUserService';
 
 import { mockUsers } from 'src/static/users';
 

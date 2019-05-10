@@ -1,13 +1,13 @@
 import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { map, filter, takeUntil } from 'rxjs/operators';
 import { ReplaySubject, Subject } from 'rxjs';
+import { filter, map, takeUntil } from 'rxjs/operators';
 
 import { isNullOrUndefined } from 'util';
 
-import { IVideoService } from 'services/IVideoService';
 import { IRouterService } from 'services/IRouterService';
+import { IVideoService } from 'services/IVideoService';
 
 @Component({
     templateUrl: 'video-view.template.pug',

@@ -24,8 +24,6 @@ class ActionResult<T> {
     }
 
     private constructor() { }
-
-
 }
 
 export { ActionResult };

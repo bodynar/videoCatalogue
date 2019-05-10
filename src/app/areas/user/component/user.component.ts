@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { IUserService } from 'services/IUserService';
 import { ICurrentUser } from 'services/ICurrentUser';
+import { IUserService } from 'services/IUserService';
 
 @Component({
     templateUrl: 'user.template.pug',

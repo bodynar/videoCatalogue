@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 
 import { Video } from 'models/video';
-import { IVideoService } from 'services/IVideoService';
 import { IRouterService } from 'services/IRouterService';
+import { IVideoService } from 'services/IVideoService';
 
 @Component({
     selector: 'app-video-item',

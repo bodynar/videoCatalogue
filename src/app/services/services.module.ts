@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 
-import { IVideoService } from './contracts/IVideoService';
-import { IUserService } from './contracts/IUserService';
-import { ICurrentUser } from './contracts/ICurrentUser';
-import { IRouterService } from './contracts/IRouterService';
+import { ICurrentUser } from 'services/ICurrentUser';
+import { IRouterService } from 'services/IRouterService';
+import { IUserService } from 'services/IUserService';
+import { IVideoService } from 'services/IVideoService';
 
-import { MockVideoService } from './implementations/mockVideo.service';
-import { MockUserService } from './implementations/mockUser.service';
 import { CurrentUserService } from './implementations/currentUser.service';
+import { MockUserService } from './implementations/mockUser.service';
+import { MockVideoService } from './implementations/mockVideo.service';
 import { RouterService } from './implementations/router.service';
 
 @NgModule({
