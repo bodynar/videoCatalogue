@@ -28,7 +28,14 @@ class MenuComponent implements OnInit, OnDestroy {
     constructor(
         private routerService: IRouterService,
     ) {
-        this.menuItems = siteMenu;
+        this.menuItems = siteMenu.sort((leftItem, rightItem) => {
+            const leftPosition: number =
+                isNullOrUndefined(leftItem.position)
+                    ? 0
+                    : leftItem.position;
+
+            return leftPosition - rightItem.position;
+        });
         this.menuItems$.next(this.menuItems);
     }
 

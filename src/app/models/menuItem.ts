@@ -1,4 +1,5 @@
 interface MenuItem {
+    position?: number;
     name: string;
     childs?: Array<MenuItem>;
     isActive?: boolean;

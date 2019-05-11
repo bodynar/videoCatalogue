@@ -11,7 +11,12 @@ const siteMenu: Array<MenuItem> = [
     },
     {
         name: 'User',
-        link: 'user'
+        link: 'user',
+        position: 1
+    },
+    {
+        name: 'Vacations',
+        link: 'vacations'
     }
 ];
 
