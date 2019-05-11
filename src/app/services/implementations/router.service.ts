@@ -1,25 +1,41 @@
 import { Injectable } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 
-import { Observable } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { Observable, ReplaySubject, Subject } from 'rxjs';
+import { filter, map, pairwise } from 'rxjs/operators';
 
 import { IRouterService } from 'services/IRouterService';
 
 @Injectable()
 class RouterService implements IRouterService {
 
+    private previousRoute: string;
+
+    private whenNavigationEnds$: Subject<NavigationEnd> =
+        new ReplaySubject(1);
+
     constructor(
         private router: Router,
     ) {
-    }
-
-    public whenRouteChange(): Observable<Array<string>> {
-        return this.router
+        this.router
             .events
             .pipe(
                 filter(event => event instanceof NavigationEnd),
-                map(event => event as NavigationEnd),
+                map(event => event as NavigationEnd)
+            )
+            .subscribe(event => this.whenNavigationEnds$.next(event));
+
+        this.whenNavigationEnds$
+            .pipe(
+                pairwise(),
+                map(([{ urlAfterRedirects }]) => urlAfterRedirects)
+            )
+            .subscribe(route => this.previousRoute = route);
+    }
+
+    public whenRouteChange(): Observable<Array<string>> {
+        return this.whenNavigationEnds$
+            .pipe(
                 map(({ urlAfterRedirects }) =>
                     urlAfterRedirects
                         .split('/')
@@ -45,6 +61,10 @@ class RouterService implements IRouterService {
         } else {
             return currentRoute.split('?').reverse().pop();
         }
+    }
+
+    public getPreviousRoute(): string {
+        return this.previousRoute;
     }
 
     public navigate(path: Array<string>): void {

@@ -18,10 +18,16 @@ abstract class IRouterService {
     abstract getCurrentRoute(withoutArgs?: boolean): string;
 
     /**
+     * Get previous route (can be null)
+     */
+    abstract getPreviousRoute(): string;
+
+    /**
      * Navigate to strict path
      * @param path Target url
      */
     abstract navigate(path: Array<string>): void;
+
     /**
      * Navigate up by routing tree
      */
