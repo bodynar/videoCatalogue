@@ -36,8 +36,15 @@ class RouterService implements IRouterService {
             .pop();
     }
 
-    public getCurrentRoute(): string {
-        return this.router.url.substring(1);
+    public getCurrentRoute(withoutArgs: boolean = false): string {
+        const currentRoute: string =
+            this.router.url.substring(1);
+
+        if (!withoutArgs) {
+            return currentRoute;
+        } else {
+            return currentRoute.split('?').reverse().pop();
+        }
     }
 
     public navigate(path: Array<string>): void {

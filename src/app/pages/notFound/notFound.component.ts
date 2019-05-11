@@ -10,8 +10,7 @@ import { Link } from 'models/link';
 })
 class PageNotFoundComponent {
 
-    public route: string =
-        this.routerService.getCurrentRoute();
+    public route: string;
 
     public links: Array<Link> =
         [
@@ -32,6 +31,7 @@ class PageNotFoundComponent {
     constructor(
         private routerService: IRouterService
     ) {
+        this.route = `/${this.routerService.getCurrentRoute(true)}`;
     }
 }
 

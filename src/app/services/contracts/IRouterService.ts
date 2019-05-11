@@ -13,8 +13,9 @@ abstract class IRouterService {
 
     /**
      * Get current route path
+     * @param withoutArgs Exclude arguments flag (false by default)
      */
-    abstract getCurrentRoute(): string;
+    abstract getCurrentRoute(withoutArgs?: boolean): string;
 
     /**
      * Navigate to strict path
