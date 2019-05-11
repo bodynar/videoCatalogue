@@ -59,10 +59,10 @@ class MenuComponent implements OnInit, OnDestroy {
     }
 
     public onMenuItemClick(menuItem: MenuItem): void {
-        const currentPath: string =
-            this.routerService.getCurrentPath();
+        const currentRoute: string =
+            this.routerService.getCurrentRoute();
 
-        if (currentPath === menuItem.link) {
+        if (currentRoute === menuItem.link) {
             return;
         }
 

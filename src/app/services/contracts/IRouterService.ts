@@ -14,7 +14,7 @@ abstract class IRouterService {
     /**
      * Get current route path
      */
-    abstract getCurrentPath(): string;
+    abstract getCurrentRoute(): string;
 
     /**
      * Navigate to strict path

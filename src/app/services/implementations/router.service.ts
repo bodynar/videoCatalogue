@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
@@ -36,7 +36,7 @@ class RouterService implements IRouterService {
             .pop();
     }
 
-    public getCurrentPath(): string {
+    public getCurrentRoute(): string {
         return this.router.url.substring(1);
     }
 

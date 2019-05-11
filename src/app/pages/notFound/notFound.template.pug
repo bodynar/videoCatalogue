@@ -1,4 +1,14 @@
 doctype html
 
-h1 404
-h2 page not found
+.container-fluid.m-container
+    .error-container
+        .error-header
+            h1 404
+            h2 Page not found
+        .error-body.offset-top-small Requested route 
+            span /{{ route }} 
+            |  not found. Probably it has not been developed for now. Or it could be removed due useless.
+        .error-footer.offset-top-small Return to site using site via links to popular areas
+            ul.error-links.offset-top-small
+                li.link(*ngFor="let 'link' of links")
+                    a([href]='link.href') {{ link.name }}
