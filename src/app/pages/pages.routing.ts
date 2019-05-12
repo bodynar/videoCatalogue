@@ -5,10 +5,6 @@ import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './notFound/notFound.component';
 
 const pagesRoutes: Routes = [
-    // {
-    //     path: '**',
-    //     component: PageNotFoundComponent
-    // },
     {
         path: 'login',
         component: LoginComponent
@@ -16,6 +12,10 @@ const pagesRoutes: Routes = [
     {
         path: 'forbidden',
         component: ForbiddenComponent
+    },
+    {
+        path: '**',
+        component: PageNotFoundComponent
     }
 ];
 
