@@ -7,6 +7,7 @@ import { AppContainerComponent } from './components/appContainer/appContainer.co
 import { employeesRoutes } from './areas/employees/employess.routing';
 import { userRoutes } from './areas/user/user.routing';
 import { videoRoutes } from './areas/videos/videos.routing';
+import { AuthGuard } from './guards/auth.guard';
 import { pagesRoutes } from './pages/pages.routing';
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   {
     path: 'app',
     component: AppContainerComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
