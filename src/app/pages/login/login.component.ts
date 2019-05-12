@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 import { ICurrentUser } from 'services/ICurrentUser';
 import { IUserService } from 'services/IUserService';
@@ -14,8 +15,9 @@ class LoginComponent {
     ) {
     }
 
-    public authenticate(): void {
-        this.userService.authorize('', '');
+    public authenticate(form: NgForm): void {
+        console.warn(form);
+        // this.userService.authorize('', '');
     }
 }
 

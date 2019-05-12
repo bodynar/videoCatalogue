@@ -1,7 +1,30 @@
 doctype html
 
-h1 hello world
-
-hr
-
-h4 please login
+.container-fluid.m-container
+    .login-container
+        .login-header
+            h1 Sign in
+            h3 Please sign in
+        .login-body.offset-top-medium
+            form.m-form(#loginForm='ngForm')
+                .m-form-group.offset-bottom-medium
+                    input.m-form-group-input(
+                        type='text',
+                        id='login',
+                        placeholder='Login',
+                        required='required'
+                    )
+                    label.m-form-group-label(for='login') Login
+                .m-form-group
+                    input.m-form-group-input(
+                        type='password',
+                        id='password',
+                        name='password',
+                        placeholder='Password',
+                        required='required'
+                    )
+                    label.m-form-group-label(for='Password') Password
+        .login-footer.offset-top-medium
+            button.btn.btn-outline-info(
+                (click)='authenticate(loginForm)'
+            ) Login
