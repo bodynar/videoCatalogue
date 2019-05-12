@@ -1,30 +1,22 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 
+import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './notFound/notFound.component';
 
-const routes: Routes = [
+const pagesRoutes: Routes = [
+    // {
+    //     path: '**',
+    //     component: PageNotFoundComponent
+    // },
     {
-        path: '',
-        children: [
-            {
-                path: '**',
-                component: PageNotFoundComponent
-            },
-            {
-                path: 'login',
-                component: LoginComponent
-            }
-        ]
+        path: 'login',
+        component: LoginComponent
+    },
+    {
+        path: 'forbidden',
+        component: ForbiddenComponent
     }
 ];
 
-@NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [],
-    declarations: [],
-})
-class PagesRoutingModule { }
-
-export { PagesRoutingModule };
+export { pagesRoutes };

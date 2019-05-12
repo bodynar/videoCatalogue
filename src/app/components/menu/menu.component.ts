@@ -66,10 +66,18 @@ class MenuComponent implements OnInit, OnDestroy {
             return;
         }
 
-        this.menuItems.forEach(item => item.isActive = false);
-        menuItem.isActive = true;
+        const route: Array<string> = [];
 
-        this.routerService.navigate([menuItem.link]);
+        if (isNullOrUndefined(menuItem.withoutRoot) || menuItem.withoutRoot === false) {
+            route.push('app');
+
+            this.menuItems.forEach(item => item.isActive = false);
+            menuItem.isActive = true;
+        }
+
+        route.push(menuItem.link);
+
+        this.routerService.navigate(route);
     }
 
     private highlightMenuItem(menuItemName: string): void {

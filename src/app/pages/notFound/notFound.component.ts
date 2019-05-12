@@ -19,11 +19,11 @@ class PageNotFoundComponent {
                 name: 'Main'
             },
             {
-                href: 'videos',
+                href: 'app/videos',
                 name: 'Videos'
             },
             {
-                href: 'user',
+                href: 'app/user',
                 name: 'User'
             }
         ];

@@ -1,18 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './notFound/notFound.component';
-import { PagesRoutingModule } from './pages.routing';
 
 @NgModule({
     imports: [
-        CommonModule,
-        PagesRoutingModule
+        CommonModule
     ],
     exports: [],
     declarations: [
-        LoginComponent, PageNotFoundComponent
+        LoginComponent, PageNotFoundComponent, ForbiddenComponent
     ],
     providers: [],
 })

@@ -48,6 +48,7 @@ class RouterService implements IRouterService {
         return this.router.url
             .split('/')
             .filter(routerPart => routerPart !== '')
+            .filter(routerPath => routerPath !== 'app')
             .reverse()
             .pop();
     }

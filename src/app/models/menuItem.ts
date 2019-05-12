@@ -4,6 +4,7 @@ interface MenuItem {
     childs?: Array<MenuItem>;
     isActive?: boolean;
     link?: string;
+    withoutRoot?: boolean;
 }
 
 export { MenuItem };

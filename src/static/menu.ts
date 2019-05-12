@@ -17,6 +17,12 @@ const siteMenu: Array<MenuItem> = [
     {
         name: 'Vacations',
         link: 'vacations'
+    },
+    {
+        name: 'Login',
+        link: 'login',
+        position: 2,
+        withoutRoot: true
     }
 ];
 
