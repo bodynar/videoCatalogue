@@ -5,19 +5,19 @@ import { INotificator } from 'services/INotificator';
 @Injectable()
 class NotificatorService implements INotificator {
     public notify(message: string): void {
-        alert(message);
+        // alert(message);
     }
 
     public error(message: string): void {
-        alert(message);
+        // alert(message);
     }
 
     public success(message: string): void {
-        alert(message);
+        // alert(message);
     }
 
     public warning(message: string): void {
-        alert(message);
+        // alert(message);
     }
 
     constructor() { }

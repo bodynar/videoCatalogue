@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { ICurrentUser } from 'services/ICurrentUser';
+import { INotificator } from 'services/INotificator';
 import { IUserService } from 'services/IUserService';
 
 @Component({
@@ -10,14 +10,17 @@ import { IUserService } from 'services/IUserService';
 })
 class LoginComponent {
     constructor(
-        private currentUser: ICurrentUser,
         private userService: IUserService,
+        private notificator: INotificator,
     ) {
     }
 
     public authenticate(form: NgForm): void {
-        console.warn(form);
-        // this.userService.authorize('', '');
+        try {
+            this.userService.authorize('', '');
+        } catch (error) {
+            this.notificator.error(error);
+        }
     }
 }
 
