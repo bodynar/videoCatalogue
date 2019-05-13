@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 
+import { LoginGuard } from '../guards/login.guard';
+
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './notFound/notFound.component';
@@ -7,7 +9,8 @@ import { PageNotFoundComponent } from './notFound/notFound.component';
 const pagesRoutes: Routes = [
     {
         path: 'login',
-        component: LoginComponent
+        component: LoginComponent,
+        canActivate: [LoginGuard]
     },
     {
         path: 'forbidden',

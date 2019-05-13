@@ -5,22 +5,22 @@ import { ICurrentUser } from 'services/ICurrentUser';
 import { IRouterService } from 'services/IRouterService';
 
 @Injectable({ providedIn: 'root' })
-class AuthGuard implements CanActivate {
+ class LoginGuard implements CanActivate {
     constructor(
         private currentUser: ICurrentUser,
         private routerService: IRouterService,
     ) { }
 
-    public canActivate(_: ActivatedRouteSnapshot, __: RouterStateSnapshot): boolean {
+    public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
         const isAuthorized: boolean =
             this.currentUser.isAuthorized();
 
-        if (!isAuthorized) {
-            this.routerService.navigate(['login']);
+        if (isAuthorized) {
+            this.routerService.navigate(['']);
         }
 
         return true;
     }
 }
 
-export { AuthGuard };
+export { LoginGuard };
