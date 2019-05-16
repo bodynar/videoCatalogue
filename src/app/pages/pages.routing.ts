@@ -10,7 +10,7 @@ const pagesRoutes: Routes = [
     {
         path: 'login',
         component: LoginComponent,
-        canActivate: [LoginGuard]
+        // canActivate: [LoginGuard]
     },
     {
         path: 'forbidden',

@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angular/router';
 
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+
 import { ICurrentUser } from 'services/ICurrentUser';
 import { IRouterService } from 'services/IRouterService';
 
@@ -11,15 +14,16 @@ class AuthGuard implements CanActivate {
         private routerService: IRouterService,
     ) { }
 
-    public canActivate(_: ActivatedRouteSnapshot, __: RouterStateSnapshot): boolean {
-        const isAuthorized: boolean =
-            this.currentUser.isAuthorized();
-
-        if (!isAuthorized) {
-            this.routerService.navigate(['login']);
-        }
-
-        return true;
+    public canActivate(_: ActivatedRouteSnapshot, __: RouterStateSnapshot): Observable<boolean> {
+        return this.currentUser
+            .isAuthorized()
+            .pipe(
+                tap(isAuthorized => {
+                    if (!isAuthorized) {
+                        this.routerService.navigate(['login']);
+                    }
+                })
+            );
     }
 }
 
