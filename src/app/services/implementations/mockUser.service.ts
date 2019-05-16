@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
 
-import { isNullOrUndefined } from 'util';
-
-import { ICurrentUser } from 'services/ICurrentUser';
 import { IUserService } from 'services/IUserService';
 
 import { mockUsers } from 'src/static/users';
@@ -14,25 +11,7 @@ import { User } from 'models/user';
 class MockUserService implements IUserService {
 
     constructor(
-        private currentUser: ICurrentUser
     ) {
-    }
-
-    public authorize(login: string, passwordHash: string): void {
-        const specificUser: User =
-            mockUsers.find(user => user.login === login);
-
-        if (isNullOrUndefined(specificUser)) {
-            throw new Error('User with specified login is not found');
-        }
-
-        if (specificUser.passwordHash !== passwordHash) {
-            throw new Error('Password is not correct');
-        }
-
-        specificUser.token = 'token';
-
-        this.currentUser.authorize(specificUser);
     }
 
     public register(login: string, passwordHash: string): ActionResult<boolean> {
