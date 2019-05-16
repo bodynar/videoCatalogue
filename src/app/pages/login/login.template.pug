@@ -12,8 +12,10 @@ doctype html
                         input.m-form-group-input(
                             type='text',
                             id='login',
+                            name='login',
                             placeholder='Login',
-                            required='required'
+                            required='required',
+                            ngModel
                         )
                         label.m-form-group-label(for='login') Login
                     .m-form-group
@@ -22,7 +24,8 @@ doctype html
                             id='password',
                             name='password',
                             placeholder='Password',
-                            required='required'
+                            required='required',
+                            ngModel
                         )
                         label.m-form-group-label(for='Password') Password
             .login-footer.offset-top-medium.offset-bottom-small
