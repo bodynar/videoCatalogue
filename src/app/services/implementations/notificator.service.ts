@@ -9,15 +9,15 @@ class NotificatorService implements INotificator {
     }
 
     public error(message: string): void {
-        // alert(message);
+        console.error(message);
     }
 
     public success(message: string): void {
-        // alert(message);
+        console.log(message);
     }
 
     public warning(message: string): void {
-        // alert(message);
+        console.warn(message);
     }
 
     constructor() { }
