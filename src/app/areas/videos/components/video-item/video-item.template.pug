@@ -1,6 +1,8 @@
 doctype html
 
-.video.video-container-border
+.video(
+    (click)='onVideoClick()'
+)
     .video-preview
         img([src]='videoItem.preview')
         .video-preview_duration 10:00:00 {{ videoItem.duration }}
@@ -9,12 +11,5 @@ doctype html
         .video-info_description 
             p Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates sunt neque aliquid amet veniam nobis itaque libero. Culpa cupiditate ea consequatur libero veniam quibusdam debitis iusto! Minima explicabo architecto illum {{ videoItem.description }}
     .video-stats
-        .video-stats_likes 10{{ videoItem.likes }}
-        .video-stats_views 20{{ videoItem.views }}
-
-//- .item(
-//-     (click)='onVideoClick()'
-//- )
-//-     .item-container
-//-         img.item-preview([src]='videoItem.preview')
-//-         .item-content {{ videoItem.name }}
+        .video-stats_likes 10 {{ videoItem.likes }}
+        .video-stats_views 20 {{ videoItem.views }}

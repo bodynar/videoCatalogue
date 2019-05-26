@@ -1,6 +1,7 @@
 @import url('https://weloveiconfonts.com/api/?family=fontawesome')
+@import '../../../../../common/colors.styl'
 
-.video-container-border
+border()
     border-radius 4px
     border 1px solid gray
     box-shadow 0 2px 4px -1px rgba(0, 0, 0, 0.25)
@@ -13,7 +14,14 @@
 
     display flex
     flex-direction column
-
+    border()
+    cursor pointer
+    user-select none
+    &:hover
+        box-shadow 0 0 0.5em -2px color-blue-sea-softlight
+        border-color color-blue-sea-wave-light
+        & > * > .video-info_name
+            color color-blue-soft
     &-preview
         height 50%
         & > img
