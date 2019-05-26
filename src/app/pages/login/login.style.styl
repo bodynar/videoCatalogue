@@ -2,15 +2,8 @@
 @import url('https://fonts.googleapis.com/css?family=Kodchasan:200')
 @import url('https://fonts.googleapis.com/css?family=Roboto')
 
-/**
-* By default, the placeholder should be transparent. Also, it should 
-* inherit the transition.
-*/
-::-webkit-input-placeholder 
-    opacity 0
-    transition inherit
 
-::ng-deep body 
+.bg-login
     background-color color-white-paint
 
     background-image url(/static/images/background-login.jpg)
@@ -18,6 +11,13 @@
     height 100vh
     overflow-y hidden
     position relative
+/**
+* By default, the placeholder should be transparent. Also, it should 
+* inherit the transition.
+*/
+::-webkit-input-placeholder 
+    opacity 0
+    transition inherit
 .m-container
     height 80vh
     width 100%
