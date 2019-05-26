@@ -30,7 +30,7 @@ border()
         &_duration
             background-color color-green-wood-dark
             color white
-            opacity 0.7
+            opacity 0.8
 
             font-size 0.8em
             display inline
@@ -54,21 +54,23 @@ border()
             text-align justify
 
             display -webkit-box
-            -webkit-line-clamp 3
+            -webkit-line-clamp 4
             /* autoprefixer: off */
             -webkit-box-orient vertical
             & p
                 margin 0
     &-stats
-        height 10%
-        margin 1em 2em
+        padding 0.5em
+        margin-bottom 0.2em
         display flex
         justify-content space-between
 
-        font-size 0.7em
+        font-size 0.85em
         &_likes:before
             content '\f087'
             font-family fontawesome
+            margin-right 0.3em
         &_views:after
             content '\f06e'
             font-family fontawesome
+            margin-left 0.3em

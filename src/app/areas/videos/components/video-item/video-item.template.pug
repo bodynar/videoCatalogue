@@ -5,7 +5,7 @@ doctype html
 )
     .video-preview
         img([src]='videoItem.preview')
-        .video-preview_duration 10:00:00 {{ videoItem.duration }}
+        .video-preview_duration {{ videoItem.duration }}
     .video-info
         .video-info_name {{ videoItem.name }}
         .video-info_description 
