@@ -28,7 +28,7 @@ import { VideosModule } from './areas/videos/videos.module';
     VideosModule,
     EmployeesModule,
     UserModule,
-    PagesModule
+    PagesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
