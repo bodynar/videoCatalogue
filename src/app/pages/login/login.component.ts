@@ -52,6 +52,7 @@ class LoginComponent {
     }
 
     public authenticate({ form }: NgForm): void {
+        this.routerService.navigate(['app']);
         if (form.valid) {
             this.whenFormSubmitted$.next({
                 login: form.value['login'],
