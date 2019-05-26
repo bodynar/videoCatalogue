@@ -1,17 +1,60 @@
-.item
-    border 1px solid black
-    border-radius 5px
-    height 250px
-    background wheat
-    width 150px
-    margin 5px
-    &-container
-        display flex
-        align-items center
-        align-content center
-    &-content
-        padding 5px
+@import url('https://weloveiconfonts.com/api/?family=fontawesome')
+
+.video-container-border
+    border-radius 4px
+    border 1px solid gray
+    box-shadow 0 2px 4px -1px rgba(0, 0, 0, 0.25)
+
+.video
+    height 15em
+    width 17vw
+    margin 5px 15px
+    padding 5px
+
+    display flex
+    flex-direction column
+
     &-preview
-        padding 0 5px
-        width 60px
-        height 60px
+        height 50%
+        & > img
+            height 100%
+            width 100%
+        &_duration
+            margin-bottom 1.2em
+            margin-right 0.2em
+            background-color rgba(0, 0, 0, 0)
+            color white
+            opacity 0.5
+    &-info
+        height 40%
+        padding 3px
+        display flex
+        flex-direction column
+        &_name
+            text-align left
+        &_description
+            font-size 0.7em
+            color gray
+            
+            width 100%
+            overflow hidden
+            text-align justify
+
+            display -webkit-box
+            -webkit-box-orient vertical
+            -webkit-line-clamp 3
+            & p
+                margin 0
+    &-stats
+        height 10%
+        margin 1em 2em
+        display flex
+        justify-content space-between
+
+        font-size 0.7em
+        &_likes:before
+            content '\f087'
+            font-family fontawesome
+        &_views:after
+            content '\f06e'
+            font-family fontawesome
