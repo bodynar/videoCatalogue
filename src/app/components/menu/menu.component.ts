@@ -45,7 +45,7 @@ class MenuComponent implements OnInit, OnDestroy {
             .pipe(
                 takeUntil(this.whenComponentDestroy$)
             )
-            .subscribe(([rootPath]) => this.highlightMenuItem(rootPath));
+            .subscribe(([, rootPath]) => this.highlightMenuItem(rootPath));
 
         const currentArea: string =
             this.routerService.getAreaName();
@@ -81,13 +81,18 @@ class MenuComponent implements OnInit, OnDestroy {
     }
 
     private highlightMenuItem(menuItemName: string): void {
+        this.menuItems.forEach(item => item.isActive = false);
+
+        if (isNullOrUndefined(menuItemName)) {
+            return;
+        }
+
         const menuItem: MenuItem =
             this.menuItems
                 .filter(item => item.link === menuItemName)
                 .pop();
 
         if (!isNullOrUndefined(menuItem)) {
-            this.menuItems.forEach(item => item.isActive = false);
             menuItem.isActive = true;
         }
     }
