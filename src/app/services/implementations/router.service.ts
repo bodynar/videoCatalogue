@@ -68,9 +68,9 @@ class RouterService implements IRouterService {
         return this.previousRoute;
     }
 
-    public navigate(path: Array<string>): void {
+    public navigate(path: Array<string>, extras: any): void {
         this.router
-            .navigate(path)
+            .navigate(path, extras)
             .then()
             .catch();
     }

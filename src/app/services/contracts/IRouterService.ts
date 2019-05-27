@@ -26,7 +26,7 @@ abstract class IRouterService {
      * Navigate to strict path
      * @param path Target url
      */
-    abstract navigate(path: Array<string>): void;
+    abstract navigate(path: Array<string>, extras?: any): void;
 
     /**
      * Navigate up by routing tree
