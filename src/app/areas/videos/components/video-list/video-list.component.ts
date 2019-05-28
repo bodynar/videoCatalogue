@@ -1,7 +1,7 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { ReplaySubject, Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { map, takeUntil } from 'rxjs/operators';
 
 import { Video } from 'models/video';
 import { IVideoService } from 'services/IVideoService';
@@ -10,9 +10,16 @@ import { IVideoService } from 'services/IVideoService';
     templateUrl: 'video-list.template.pug',
     styleUrls: ['video-list.style.styl']
 })
-class VideoListComponent implements OnDestroy {
+class VideoListComponent implements OnInit, OnDestroy {
 
     public videos$: Subject<Array<Video>> =
+        new ReplaySubject(1);
+
+    public isListDisplayType$: Subject<boolean> =
+        new ReplaySubject(1);
+
+    // todo: change types
+    public whenTypeChange$: Subject<'list' | 'cards'> =
         new ReplaySubject(1);
 
 
@@ -26,6 +33,18 @@ class VideoListComponent implements OnDestroy {
             .getVideos()
             .pipe(takeUntil(this.whenComponentDestroy$))
             .subscribe(videos => this.videos$.next(videos));
+
+        this.whenTypeChange$
+            .pipe(
+                takeUntil(this.whenComponentDestroy$),
+                map(type => type === 'list')
+            )
+            .subscribe(isList => this.isListDisplayType$.next(isList));
+    }
+
+    public ngOnInit(): void {
+        this.whenTypeChange$.next('cards');
+        // todo: replace then from cache or user settings
     }
 
     public ngOnDestroy(): void {
