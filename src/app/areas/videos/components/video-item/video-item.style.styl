@@ -6,7 +6,7 @@ border()
     border 1px solid gray
     box-shadow 0 2px 4px -1px rgba(0, 0, 0, 0.25)
 
-.video
+.card
     height 15em
     width 17vw
     margin 5px 15px
@@ -20,14 +20,14 @@ border()
     &:hover
         box-shadow 0 0 0.5em -2px color-blue-sea-softlight
         border-color color-blue-sea-wave-light
-        & > * > .video-info_name
+        & > * > .info-name
             color color-blue-soft
-    &-preview
+    & > .preview
         height 50%
         & > img
             height 100%
             width 100%
-        &_duration
+        & > .duration
             background-color color-green-wood-dark
             color white
             opacity 0.8
@@ -38,14 +38,14 @@ border()
             top -1.8em
             left -0.5em
             float right
-    &-info
+    & > .info
         height 40%
         padding 3px
         display flex
         flex-direction column
-        &_name
+        & > .name
             text-align left
-        &_description
+        & > .description
             font-size 0.7em
             color gray
             
@@ -59,18 +59,86 @@ border()
             -webkit-box-orient vertical
             & p
                 margin 0
-    &-stats
+    & > .stats
         padding 0.5em
         margin-bottom 0.2em
         display flex
         justify-content space-between
 
         font-size 0.85em
-        &_likes:before
+        & > .likes:before
             content '\f087'
             font-family fontawesome
             margin-right 0.3em
-        &_views:after
+        & > .views:after
+            content '\f06e'
+            font-family fontawesome
+            margin-left 0.3em
+.list
+    height 15em
+    width 17vw
+    margin 5px 15px
+    padding 5px
+
+    display flex
+    flex-direction column
+    border()
+    cursor pointer
+    user-select none
+    &:hover
+        box-shadow 0 0 0.5em -2px color-blue-sea-softlight
+        border-color color-blue-sea-wave-light
+        & > * > .info-name
+            color color-blue-soft
+    & > .preview
+        height 50%
+        & > img
+            height 100%
+            width 100%
+        & > .duration
+            background-color color-green-wood-dark
+            color white
+            opacity 0.8
+
+            font-size 0.8em
+            display inline
+            position relative
+            top -1.8em
+            left -0.5em
+            float right
+    & > .info
+        height 40%
+        padding 3px
+        display flex
+        flex-direction column
+        & > .name
+            text-align left
+        & > .description
+            font-size 0.7em
+            color gray
+            
+            width 100%
+            overflow hidden
+            text-align justify
+
+            display -webkit-box
+            -webkit-line-clamp 4
+            /* autoprefixer: off */
+            -webkit-box-orient vertical
+            & p
+                margin 0
+    & > .stats
+        padding 0.5em
+        margin-bottom 0.2em
+        display flex
+        justify-content space-between
+
+        font-size 0.85em
+        & > .likes:before
+            content '\f087'
+            font-family fontawesome
+            margin-right 0.3em
+        & > .views:after
             content '\f06e'
             font-family fontawesome
             margin-left 0.3em

@@ -15,9 +15,12 @@ h3 video-list
             (click)="whenTypeChange$.next('cards')",
             title='cards'
         )
-    .videos-list
+    .videos(
+        [class.cards]='!(isListDisplayType$ | async)',
+        [class.list]='(isListDisplayType$ | async)'
+    )
         app-video-item.videos-item(
             *ngFor="let 'video' of (videos$ | async)",
             [video]='video',
-            [dispayTypeChange]='whenTypeChange$'
+            [dispayTypeChange]='this.whenTypeChange$'
         )

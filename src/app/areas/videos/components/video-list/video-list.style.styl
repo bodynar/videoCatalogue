@@ -4,12 +4,13 @@
 iconHolder()
     padding 0 4px
     margin 0 2.5px
-    border 1px solid black
+    border 1px solid color-blue-prestigie
+    border-radius 4px
     cursor pointer
     user-select none
 
 iconHolderHover()
-    background-color color-blue-sky-darken
+    background-color color-blue-france
     color color-white-milk
 
 iconStyle()
@@ -17,36 +18,41 @@ iconStyle()
     font-size 1.4em
 
 typeSelected()
-    // background-color color-blue-sea-wave-light-2
+    background-color color-blue-soft
+    color color-white-milk
 
-.videos-
-    &list
+.videos
+    &.cards
         display flex
         flex-wrap wrap
         flex-direction row
-        &-type
-            display flex
-            flex-direction row
-            justify-content flex-end
-            &-list
-                iconHolder()
-                &.selected
-                    typeSelected()
-                &:hover
-                    iconHolderHover()
-                &:active
-                    background-color color-blue-soft
-                &:after
-                    iconStyle()
-                    content '\f03a'
-            &-cards
-                iconHolder()
-                &.selected
-                    typeSelected()
-                &:after
-                    iconStyle()
-                    content '\f03e'
-                &:hover
-                    iconHolderHover()
-                &:active
-                    background-color color-blue-soft
+    &.list
+        display flex
+        flex-wrap wrap
+        flex-direction column
+    &-list-type
+        display flex
+        flex-direction row
+        justify-content flex-end
+        &-list
+            iconHolder()
+            &.selected
+                typeSelected()
+            &:hover
+                iconHolderHover()
+            &:active
+                background-color color-blue-soft
+            &:after
+                iconStyle()
+                content '\f03a'
+        &-cards
+            iconHolder()
+            &.selected
+                typeSelected()
+            &:after
+                iconStyle()
+                content '\f03e'
+            &:hover
+                iconHolderHover()
+            &:active
+                background-color color-blue-soft

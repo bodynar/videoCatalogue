@@ -1,15 +1,17 @@
 doctype html
 
-.video(
+div(
+    [class.card]='!(isListDisplayType$ | async)',
+    [class.list-item]='(isListDisplayType$ | async)',
     (click)='onVideoClick()'
 )
-    .video-preview
+    .preview
         img([src]='videoItem.preview')
-        .video-preview_duration {{ videoItem.duration | dateFormat:'HH:mm:ss' }}
-    .video-info
-        .video-info_name {{ videoItem.name }}
-        .video-info_description 
+        .duration {{ videoItem.duration | dateFormat:'HH:mm:ss' }}
+    .info
+        .name {{ videoItem.name }}
+        .description 
             p {{ videoItem.description }}
-    .video-stats
-        .video-stats_likes {{ videoItem.likes }}
-        .video-stats_views {{ videoItem.views }}
+    .stats
+        .likes {{ videoItem.likes }}
+        .views {{ videoItem.views }}
