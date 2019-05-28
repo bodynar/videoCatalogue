@@ -1,7 +1,7 @@
-import { Component, Input, OnDestroy } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 
 import { ReplaySubject, Subject } from 'rxjs';
-import { map, takeUntil } from 'rxjs/operators';
+import { map, takeUntil, tap } from 'rxjs/operators';
 
 import { Video } from 'models/video';
 import { IRouterService } from 'services/IRouterService';
@@ -12,13 +12,12 @@ import { IVideoService } from 'services/IVideoService';
     templateUrl: 'video-item.template.pug',
     styleUrls: ['video-item.style.styl']
 })
-class VideoItemComponent implements OnDestroy {
+class VideoItemComponent implements OnInit, OnDestroy {
     @Input('video')
     public videoItem: Video;
 
     @Input('dispayTypeChange')
-    public whenTypeChange$: Subject<'list' | 'cards'> =
-        new ReplaySubject(1);
+    public whenTypeChange$: Subject<'list' | 'cards'>;
 
     public isListDisplayType$: Subject<boolean> =
         new ReplaySubject(1);
@@ -31,6 +30,9 @@ class VideoItemComponent implements OnDestroy {
         private routerService: IRouterService,
         private videoServie: IVideoService,
     ) {
+    }
+
+    public ngOnInit(): void {
         this.whenTypeChange$
             .pipe(
                 takeUntil(this.whenComponentDestroy$),
