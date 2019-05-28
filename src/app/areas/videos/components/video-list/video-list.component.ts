@@ -1,9 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { ReplaySubject, Subject } from 'rxjs';
-import { map, takeUntil } from 'rxjs/operators';
+import { map, switchMapTo, takeUntil, tap } from 'rxjs/operators';
 
 import { Video } from 'models/video';
+
+import { ICacheService } from 'services/ICacheService';
 import { IVideoService } from 'services/IVideoService';
 
 @Component({
@@ -18,8 +20,7 @@ class VideoListComponent implements OnInit, OnDestroy {
     public isListDisplayType$: Subject<boolean> =
         new ReplaySubject(1);
 
-    // todo: change types
-    public whenTypeChange$: Subject<'list' | 'cards'> =
+    public whenTypeChange$: Subject<string> =
         new ReplaySubject(1);
 
 
@@ -27,7 +28,8 @@ class VideoListComponent implements OnInit, OnDestroy {
         new Subject();
 
     constructor(
-        private videoService: IVideoService
+        private videoService: IVideoService,
+        private cacheService: ICacheService,
     ) {
         this.videoService
             .getVideos()
@@ -40,11 +42,17 @@ class VideoListComponent implements OnInit, OnDestroy {
                 map(type => type === 'list')
             )
             .subscribe(isList => this.isListDisplayType$.next(isList));
+
+        this.whenComponentDestroy$
+            .pipe(switchMapTo(this.whenTypeChange$))
+            .subscribe(type => this.cacheService.set('videos.list display type', type));
     }
 
     public ngOnInit(): void {
-        this.whenTypeChange$.next('cards');
-        // todo: replace then from cache or user settings
+        const selectedDisplayType: string =
+            this.cacheService.get('videos.list display type', 'cards');
+
+        this.whenTypeChange$.next(selectedDisplayType);
     }
 
     public ngOnDestroy(): void {

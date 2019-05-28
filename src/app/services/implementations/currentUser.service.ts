@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 
 import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { isNullOrUndefined } from 'util';
 
 import { IAuthService } from 'services/IAuthService';
+import { ICacheService } from 'services/ICacheService';
 import { ICurrentUser } from 'services/ICurrentUser';
 
 import { User } from 'models/user';
-import { map } from 'rxjs/operators';
 
 @Injectable()
 class CurrentUserService implements ICurrentUser {
@@ -16,6 +17,7 @@ class CurrentUserService implements ICurrentUser {
 
     constructor(
         private authService: IAuthService,
+        private cacheService: ICacheService,
     ) {
     }
 
@@ -37,11 +39,11 @@ class CurrentUserService implements ICurrentUser {
     }
 
     public authorize(token: string): void {
-        localStorage.setItem('user-auth-token', token);
+        this.cacheService.set('user.auth token', token);
     }
 
     private getToken(): string {
-        return localStorage.getItem('user-auth-token');
+        return this.cacheService.get('user.auth token');
     }
 }
 
