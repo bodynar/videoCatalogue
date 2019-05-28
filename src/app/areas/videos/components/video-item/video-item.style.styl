@@ -74,15 +74,17 @@ border()
             content '\f06e'
             font-family fontawesome
             margin-left 0.3em
-.list
-    height 15em
-    width 17vw
-    margin 5px 15px
+.list-item
+    height 11em
+    width 90vw
+    margin 5px 0
     padding 5px
+    padding-top 0.45em
 
     display flex
-    flex-direction column
+    flex-direction row
     border()
+    border-radius 1px
     cursor pointer
     user-select none
     &:hover
@@ -91,10 +93,9 @@ border()
         & > * > .info-name
             color color-blue-soft
     & > .preview
-        height 50%
         & > img
-            height 100%
-            width 100%
+            height 10em
+            width auto
         & > .duration
             background-color color-green-wood-dark
             color white
@@ -107,38 +108,37 @@ border()
             left -0.5em
             float right
     & > .info
-        height 40%
-        padding 3px
+        padding-left 1em
         display flex
         flex-direction column
         & > .name
             text-align left
+            font-size 2em
+            text-transform capitalize
         & > .description
-            font-size 0.7em
             color gray
-            
+
             width 100%
             overflow hidden
             text-align justify
 
             display -webkit-box
-            -webkit-line-clamp 4
+            -webkit-line-clamp 5
             /* autoprefixer: off */
             -webkit-box-orient vertical
             & p
                 margin 0
     & > .stats
+        width 5%
         padding 0.5em
-        margin-bottom 0.2em
         display flex
-        justify-content space-between
-
-        font-size 0.85em
+        justify-content space-around
+        flex-direction column-reverse
         & > .likes:before
             content '\f087'
             font-family fontawesome
             margin-right 0.3em
-        & > .views:after
+        & > .views:before
             content '\f06e'
             font-family fontawesome
-            margin-left 0.3em
+            margin-right 0.3em
