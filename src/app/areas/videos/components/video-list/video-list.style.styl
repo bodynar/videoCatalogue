@@ -1,11 +1,52 @@
+@import url('https://weloveiconfonts.com/api/?family=fontawesome')
+@import '../../../../../common/colors.styl'
+
+iconHolder()
+    padding 0 4px
+    margin 0 2.5px
+    border 1px solid black
+    cursor pointer
+    user-select none
+
+iconHolderHover()
+    background-color color-blue-sky-darken
+    color color-white-milk
+
+iconStyle()
+    font-family fontawesome
+    font-size 1.4em
+
+typeSelected()
+    // background-color color-blue-sea-wave-light-2
+
 .videos-
-    &container
-        box-shadow 1px -1px solid black
-    &filters
-        border-radius 4px
-        border 2px solid gray
     &list
         display flex
         flex-wrap wrap
         flex-direction row
-    // &item
+        &-type
+            display flex
+            flex-direction row
+            justify-content flex-end
+            &-list
+                iconHolder()
+                &.selected
+                    typeSelected()
+                &:hover
+                    iconHolderHover()
+                &:active
+                    background-color color-blue-soft
+                &:after
+                    iconStyle()
+                    content '\f03a'
+            &-cards
+                iconHolder()
+                &.selected
+                    typeSelected()
+                &:after
+                    iconStyle()
+                    content '\f03e'
+                &:hover
+                    iconHolderHover()
+                &:active
+                    background-color color-blue-soft
